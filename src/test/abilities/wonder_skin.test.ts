@@ -39,7 +39,7 @@ describe("Abilities - Wonder Skin", () => {
 
     game.doAttack(getMovePosition(game.scene, 0, Moves.CHARM));
 
-    const appliedAccuracy = getAppliedMoveAccuracy(game.scene.getEnemyPokemon(), game.scene.getPlayerPokemon(), allMoves[Moves.CHARM]);
+    const appliedAccuracy = getMockedMoveAccuracy(game.scene.getEnemyPokemon(), game.scene.getPlayerPokemon(), allMoves[Moves.CHARM]);
 
     await game.phaseInterceptor.to(TurnEndPhase);
 
@@ -53,7 +53,7 @@ describe("Abilities - Wonder Skin", () => {
 
     game.doAttack(getMovePosition(game.scene, 0, Moves.TACKLE));
 
-    const appliedAccuracy = getAppliedMoveAccuracy(game.scene.getEnemyPokemon(), game.scene.getPlayerPokemon(), allMoves[Moves.TACKLE]);
+    const appliedAccuracy = getMockedMoveAccuracy(game.scene.getEnemyPokemon(), game.scene.getPlayerPokemon(), allMoves[Moves.TACKLE]);
 
     await game.phaseInterceptor.to(TurnEndPhase);
 
@@ -69,7 +69,7 @@ describe("Abilities - Wonder Skin", () => {
 
     game.doAttack(getMovePosition(game.scene, 0, Moves.CHARM));
 
-    const appliedAccuracy = getAppliedMoveAccuracy(game.scene.getEnemyPokemon(), game.scene.getPlayerPokemon(), allMoves[Moves.CHARM]);
+    const appliedAccuracy = getMockedMoveAccuracy(game.scene.getEnemyPokemon(), game.scene.getPlayerPokemon(), allMoves[Moves.CHARM]);
 
     await game.phaseInterceptor.to(TurnEndPhase);
 
@@ -85,7 +85,7 @@ describe("Abilities - Wonder Skin", () => {
 
     game.doAttack(getMovePosition(game.scene, 0, Moves.CHARM));
 
-    const appliedAccuracy = getAppliedMoveAccuracy(game.scene.getEnemyPokemon(), game.scene.getPlayerPokemon(), allMoves[Moves.CHARM]);
+    const appliedAccuracy = getMockedMoveAccuracy(game.scene.getEnemyPokemon(), game.scene.getPlayerPokemon(), allMoves[Moves.CHARM]);
 
     await game.phaseInterceptor.to(TurnEndPhase);
 
@@ -101,7 +101,7 @@ describe("Abilities - Wonder Skin", () => {
 
     game.doAttack(getMovePosition(game.scene, 0, Moves.CHARM));
 
-    const appliedAccuracy = getAppliedMoveAccuracy(game.scene.getEnemyPokemon(), game.scene.getPlayerPokemon(), allMoves[Moves.CHARM]);
+    const appliedAccuracy = getMockedMoveAccuracy(game.scene.getEnemyPokemon(), game.scene.getPlayerPokemon(), allMoves[Moves.CHARM]);
 
     await game.phaseInterceptor.to(TurnEndPhase);
 
@@ -112,14 +112,14 @@ describe("Abilities - Wonder Skin", () => {
 });
 
 /**
- * Calculates the adjusted applied accuracy of a move.
+ * Calculates the mocked accuracy of a move.
  *
  * @param defender - The defending Pokémon.
  * @param attacker - The attacking Pokémon.
  * @param move - The move being used by the attacker.
  * @returns The adjusted accuracy of the move.
  */
-const getAppliedMoveAccuracy = (defender: Pokemon, attacker: Pokemon, move: Move) => {
+const getMockedMoveAccuracy = (defender: Pokemon, attacker: Pokemon, move: Move) => {
   const accuracyHolder = new NumberHolder(move.accuracy);
 
   /**

@@ -42,7 +42,7 @@ describe("Abilities - Power Spot", () => {
     game.doAttack(getMovePosition(game.scene, 1, Moves.SPLASH));
 
     const multiplier = getAttrPowerMultiplier(game.scene.getPlayerField()[1]);
-    const appliedPower = getAppliedMovePower(game.scene.getEnemyField()[0], game.scene.getPlayerField()[0], allMoves[moveToBeUsed]);
+    const appliedPower = getMockedMovePower(game.scene.getEnemyField()[0], game.scene.getPlayerField()[0], allMoves[moveToBeUsed]);
 
     await game.phaseInterceptor.to(TurnEndPhase);
 
@@ -61,7 +61,7 @@ describe("Abilities - Power Spot", () => {
     game.doAttack(getMovePosition(game.scene, 1, Moves.SPLASH));
 
     const multiplier = getAttrPowerMultiplier(game.scene.getPlayerField()[1]);
-    const appliedPower = getAppliedMovePower(game.scene.getEnemyField()[0], game.scene.getPlayerField()[0], allMoves[moveToBeUsed]);
+    const appliedPower = getMockedMovePower(game.scene.getEnemyField()[0], game.scene.getPlayerField()[0], allMoves[moveToBeUsed]);
 
     await game.phaseInterceptor.to(TurnEndPhase);
 
@@ -80,7 +80,7 @@ describe("Abilities - Power Spot", () => {
     game.doAttack(getMovePosition(game.scene, 1, Moves.SPLASH));
 
     const multiplier = getAttrPowerMultiplier(game.scene.getPlayerField()[0]);
-    const appliedPower = getAppliedMovePower(game.scene.getEnemyField()[0], game.scene.getPlayerField()[0], allMoves[moveToBeUsed]);
+    const appliedPower = getMockedMovePower(game.scene.getEnemyField()[0], game.scene.getPlayerField()[0], allMoves[moveToBeUsed]);
 
     await game.phaseInterceptor.to(TurnEndPhase);
 
@@ -91,14 +91,14 @@ describe("Abilities - Power Spot", () => {
 });
 
 /**
- * Calculates the adjusted applied power of a move.
+ * Calculates the mocked move power based on ally's power boost.
  *
  * @param defender - The defending Pokémon.
  * @param attacker - The attacking Pokémon.
  * @param move - The move being used by the attacker.
  * @returns The adjusted power of the move.
  */
-const getAppliedMovePower = (defender: Pokemon, attacker: Pokemon, move: Move) => {
+const getMockedMovePower = (defender: Pokemon, attacker: Pokemon, move: Move) => {
   const powerHolder = new NumberHolder(move.power);
 
   /**
